@@ -37,16 +37,5 @@ docker login {TENANT_ID}.live.dynatrace.com
 docker pull {TENANT_ID}.live.dynatrace.com/linux/oneagent-codemodules-musl:all
 ```
 
-## Python Test Script
 
-I also wrote a Python script to test access:
-https://github.com/dynhughbrien/dynatrace_tenant_registry
-````
 
-A few notes on what I changed:
-
-- **`docker login`**: Your original listed it without a registry host. I added `{TENANT_ID}.live.dynatrace.com` so the command targets the tenant registry rather than Docker Hub. Remove it if you'd prefer to keep your original wording.
-- **Token placeholders**: I wrapped them in code formatting so the `XXXXXXXXXX` isn't rendered oddly, and moved the "starts with dt0c01" note into parentheses.
-- **Structure**: I added headings to separate the token setup from the testing steps, but kept your wording otherwise intact.
-
-If this is headed to a customer-facing doc, you may want to replace the tenant ID (`{TENANT_ID}`) with a placeholder like `<tenant-id>`.
