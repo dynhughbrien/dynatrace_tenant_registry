@@ -36,5 +36,40 @@ docker login {TENANT_ID}.live.dynatrace.com
 docker pull {TENANT_ID}.live.dynatrace.com/linux/oneagent-codemodules-musl:all
 ```
 
+## Example Output 
+```
+Registry: {TENANT_ID}.live.dynatrace.com
+[ OK ] Auth succeeded
+
+=== linux/oneagent ===
+  [ OK ] latest     sha256:84f658b2bc26126943e807f1da682d89b5e9f995f6dd868ac5c7489df2fad442
+
+=== linux/oneagent-codemodules ===
+  [ OK ] all        sha256:d043bbd41944b786bb1d216cef191db2690c954cd9183996da6432f99bcce082
+  [ OK ] java       sha256:c6c35b84802d468d6ce9e2301fc7aa0b566ca2fde252aab182786d09fd6462ff
+  [ OK ] nodejs     sha256:618e0e64a8fdd20dd0c983f6975b6faaff851f32cee3b3f2b2cf9fe3c08a733c
+  [ OK ] go         sha256:3c36166a936e370a084bbb9e1865f9e47da012454f4a441fec6ee045808d658a
+  [ OK ] apache     sha256:b6360b325a73559f9b08be767cc7eba1e9a9b2c7d92e5f72d2894db3f0f09588
+  [ OK ] nginx      sha256:a83da77584cfd873d6d4e82049b6c57561ee5f9d8d893605524c1109629ae8ac
+  [ OK ] php        sha256:6397a8546fa95ef725ea3824eb509548469878cb53ac8a2070de22798fb63238
+  [ OK ] dotnet     sha256:4ffa1458ae6cc4354fba62617159fcee841b3f46219664facf30791d7f4b6936
+
+=== linux/oneagent-codemodules-musl ===
+  [ OK ] all        sha256:148caea52c6674e5bd0a70327ee259c956243537f50c352a146b34d9eeb5e85d
+  [ OK ] java       sha256:90271beb7e0bce3fe119249ba72e38c30faef01773cff0774902e016391ab0cf
+  [ OK ] nodejs     sha256:464f3c4b96771c1bd63286c68713d636b0c1e65136e5b9923679566d925e01aa
+  [ OK ] go         sha256:d1401a88f37062b75c3b447bad52616ee303cda862e2094d164d9f457d7ef80e
+  [ OK ] apache     sha256:0c3d6153f95caa5996415735902e53d9bc7a97d628261a7c17e588ee348f6d3b
+  [ OK ] nginx      sha256:594e70f9d9983f56b65a0380ea501efe32b7e334623e23213bd7507d33e1e122
+  [ OK ] php        sha256:0506ffe120a05136aeaf2fa296994937301b55d231084ad5d4280d248c0edc01
+  [ OK ] dotnet     sha256:d1f729cfba6475609d111f04629728ca6aa6316e22986fbc32983383b9bf9956
+
+=== linux/activegate ===
+  [ OK ] latest     sha256:51ea0b47b3449ad2ae47f5663fcd6b829c11fde3b2de17cabdaafd1fcea162aa
+
+Pull: docker pull {TENANT_ID}.live.dynatrace.com/linux/oneagent-codemodules-musl:all
+
+```
+
 
 
