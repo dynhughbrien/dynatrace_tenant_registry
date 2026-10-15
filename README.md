@@ -140,7 +140,9 @@ docker pull {TENANT_ID}.live.dynatrace.com/linux/oneagent-codemodules-musl:all
 ```
 
 
-## Example Scrip Output 
+## Example Script Output  
+The Entire Contents of the Tenant Registry
+
 ```
 Registry: {TENANT_ID}.live.dynatrace.com
 [ OK ] Auth succeeded
