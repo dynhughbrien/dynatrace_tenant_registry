@@ -4,8 +4,6 @@ The **tenant registry is Dynatrace's built-in container registry**, served from 
 
 The tenant registry is mainly the source for images that aren't published elsewhere. 
 
-The classic full-stack OneAgent image must be replicated through the built-in registry, and the tag format uses a raw suffix.
-
 ## Key characteristics
 
 - **Authentication:** It requires credentials, and the docs list obtaining the built-in registry credentials as a prerequisite. Pulls from the tenant are authenticated, unlike ECR Public or Docker Hub.
