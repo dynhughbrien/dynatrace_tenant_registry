@@ -1,4 +1,8 @@
-# Dynatrace Registry Access Check
+# Dynatrace Tenant Registry Access Check
+
+- Describe the Tenant Registry 
+- Access the Registry
+- Query the Registry
 
 ## Dynatrace Tenant Registry
 
@@ -11,21 +15,15 @@ The tenant registry is mainly the source for images that aren't published elsewh
 ## Key characteristics
 
 - **Authentication:** It requires credentials, and the docs list obtaining the built-in registry credentials as a prerequisite. Pulls from the tenant are authenticated, unlike ECR Public or Docker Hub.
-- **Architecture:** A community answer notes the server acts as the Docker registry and provides only x86 images. For other CPU architectures, use the public registry images instead.
+- **Architecture:** A community answer notes the server acts as the Docker registry and **provides only x86 images**. For other CPU architectures, use the public registry images instead.
 - **Not for mirroring:** The docs say not to use the built-in registry for copying images to private registries. For ActiveGate and the other images, mirror from public ECR (the docs show `skopeo copy --all`). The exception is the classic full-stack OneAgent image, which has no public source.
 - **Versioning:** Tags are version-based, and there are no mutable `latest` tags on the tenant, Docker Hub or ECR Public. Pin exact versions.
 - **ActiveGate role:** The ActiveGate can route and cache image downloads when the cluster can't reach Dynatrace directly. It isn't a registry itself.
 
-## Practical notes for the POC
-- Use the correct domain: the Environment API domain, not the `.apps.` UI domain. The wrong one fails silently.
-- Keep PaaS or registry tokens out of `ARG`/`ENV` and verbose curl output. Base64 Authorization headers are easy to leak.
-- A tag or digest lookup only proves the image exists and is reachable. Only a full pull verifies the layers via SHA-256.
-- For Kubernetes, once images are in your own registry, point DynaKube's `image`, `codeModulesImage` and `customPullSecret` fields at it.
+## Python SCript 
+A small script that checks and displays  the  images from the  tenant  registry `TENANT_ID` (`TENANT_ID.live.dynatrace.com`).
 
-
-A small script that checks whether a Dynatrace PaaS token can pull images from the container registry of tenant `TENANT_ID` (`TENANT_ID.live.dynatrace.com`).
-
-## What it does
+### What it does
 
 1. Authenticates against the registry (`/v2/`) using the tenant ID as username and your token as password.
 2. Probes the image manifests for each repository and reports the digest if the tag is available:
@@ -39,13 +37,13 @@ A small script that checks whether a Dynatrace PaaS token can pull images from t
 
 The token is never printed. No Docker installation is needed.
 
-## Requirements
+### Requirements
 
 - Python 3.6+
 - Standard library only, so there are no packages to install
 - A Dynatrace token with the **PaaS (Installer download)** scope
 
-## Setup
+### Setup
 
 Create a `.env` file next to `main.py` containing your token, and restrict its permissions:
 
@@ -122,7 +120,7 @@ With this token you can test and access the Tenant Registry.
 
 ### Browser Access
 
-You can access this URL with Chrome if your corporate proxy allows it:
+You can also access the Tenant Registry with  the following URL with Chrome if your corporate proxy allows it:
 
 - **URL:** https://{TENANT_ID}.live.dynatrace.com/v2/linux/oneagent-codemodules-musl/manifests/all
 - **User ID:** `{TENANT_ID}`
@@ -141,7 +139,8 @@ docker login {TENANT_ID}.live.dynatrace.com
 docker pull {TENANT_ID}.live.dynatrace.com/linux/oneagent-codemodules-musl:all
 ```
 
-## Example Output 
+
+## Example Scrip Output 
 ```
 Registry: {TENANT_ID}.live.dynatrace.com
 [ OK ] Auth succeeded
