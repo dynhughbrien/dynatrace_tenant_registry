@@ -45,7 +45,7 @@ python3 main.py
 Example output:
 
 ```
-Registry: qmp22335.live.dynatrace.com
+Registry: TENANT_ID.live.dynatrace.com
 [ OK ] Auth succeeded
 
 === linux/oneagent ===
