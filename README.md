@@ -28,6 +28,8 @@ The **tenant registry is Dynatrace's built-in container registry**, served from 
 
 A dedicated token is required to access the tenant registry.
 
+![access-token](https://github.com/dynhughbrien/dynatrace_tenant_registry/blob/main/extra_access_token.png)
+
 1. Open the token management page:
    `https://<TENANT_ID>.apps.dynatrace.com/ui/apps/dynatrace.classic.tokens/ui/access-tokens`
 2. Generate a new token using the **PaaS Integration** template (this provides the **PaaS / Installer download** scope).
