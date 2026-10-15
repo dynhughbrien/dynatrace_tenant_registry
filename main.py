@@ -10,7 +10,7 @@ import urllib.error
 import urllib.request
 from pathlib import Path
 
-ENV_ID = "qmp22335"
+ENV_ID = "{ENV_ID}"
 HOST = f"{ENV_ID}.live.dynatrace.com"
 BASE = f"https://{HOST}"
 
