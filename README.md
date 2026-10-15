@@ -1,6 +1,6 @@
 # Dynatrace Registry Access Check
 
-A small script that checks whether a Dynatrace PaaS token can pull images from the container registry of tenant `qmp22335` (`qmp22335.live.dynatrace.com`).
+A small script that checks whether a Dynatrace PaaS token can pull images from the container registry of tenant `TENANT_ID` (`TENANT_ID.live.dynatrace.com`).
 
 ## What it does
 
@@ -55,7 +55,7 @@ Registry: qmp22335.live.dynatrace.com
   [ OK ] all        sha256:...
   [ -- ] dotnet     HTTP 404
 ...
-Pull: docker pull qmp22335.live.dynatrace.com/linux/oneagent-codemodules-musl:all
+Pull: docker pull TENANT_ID.live.dynatrace.com/linux/oneagent-codemodules-musl:all
 ```
 
 `[ -- ]` means the tag wasn't available (the HTTP status is shown).
@@ -74,8 +74,8 @@ Pull: docker pull qmp22335.live.dynatrace.com/linux/oneagent-codemodules-musl:al
 After a successful check, log in to the registry with the tenant ID as username and the token as password, then pull:
 
 ```sh
-docker login qmp22335.live.dynatrace.com
-docker pull qmp22335.live.dynatrace.com/linux/oneagent-codemodules-musl:all
+docker login TENANT_ID.live.dynatrace.com
+docker pull TENANT_ID.live.dynatrace.com/linux/oneagent-codemodules-musl:all
 ```
 
 ## Security
