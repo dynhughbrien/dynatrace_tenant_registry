@@ -16,11 +16,8 @@ The tenant registry is mainly the source for images that aren't published elsewh
 
 - **Authentication:** It requires credentials, and the docs list obtaining the built-in registry credentials as a prerequisite. Pulls from the tenant are authenticated, unlike ECR Public or Docker Hub.
 - **Architecture:** A community answer notes the server acts as the Docker registry and **provides only x86 images**. For other CPU architectures, use the public registry images instead.
-- **Not for mirroring:** The docs say not to use the built-in registry for copying images to private registries. For ActiveGate and the other images, mirror from public ECR (the docs show `skopeo copy --all`). The exception is the classic full-stack OneAgent image, which has no public source.
-- **Versioning:** Tags are version-based, and there are no mutable `latest` tags on the tenant, Docker Hub or ECR Public. Pin exact versions.
-- **ActiveGate role:** The ActiveGate can route and cache image downloads when the cluster can't reach Dynatrace directly. It isn't a registry itself.
 
-## Python SCript 
+## Python Script 
 A small script that checks and displays  the  images from the  tenant  registry `TENANT_ID` (`TENANT_ID.live.dynatrace.com`).
 
 ### What it does
@@ -112,7 +109,9 @@ A special token is required to access the Tenant Registry.
 2. Use the **PaaS Integration** template.
 
 **Token management page:**
-https://{TENANT_ID}.apps.dynatrace.com/ui/apps/dynatrace.classic.tokens/ui/access-tokens?gtf=-2h&gf=all
+Special Access-Tokens
+https://{TENANT_ID}.apps.dynatrace.com/ui/apps/dynatrace.classic.tokens/ui/access-tokens
+
 
 ## Testing Registry Access
 
