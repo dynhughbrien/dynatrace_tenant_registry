@@ -1,6 +1,5 @@
 # Docker Images: Tenant Registry Access
 
-I have resolved the issue on the "musl" versions.
 
 ## Special Token Required
 
